@@ -4,6 +4,7 @@ document.addEventListener("keypress",(event)=>
 {
     
     makeSound(event.key);
+    buttonAnimation(event.key);
 }
 );
 
@@ -15,6 +16,7 @@ for(let i=0;i<=noOfDrums;i++)
         function () 
         {
             makeSound(this.innerHTML)
+            buttonAnimation(this.innerHTML);
         }
     ); 
 };
@@ -61,4 +63,13 @@ function makeSound (selected) {
                     console.log("Invalid");
 
             }
+}
+
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector("."+currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(()=>{
+        activeButton.classList.remove("pressed");
+    },100);     
+
 }
